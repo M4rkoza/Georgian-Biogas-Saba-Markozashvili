@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+
+{% block body %}
+<br>
+<style> h1 { color:#80FF00} </style>
+
+<h1 class="bg-success rounded w-25">Live Eco, Do Eco</h1>
+
+{% for source in sources %}
+
+
+<br>
+
+<div class="card mb-3 shadow" style="max-width: 540px;">
+    <div class="row g-0">
+        <div class="col-md-4">
+            <img src="/static/{{source.img}}" class="img-fluid rounded-start" alt="..." width="600px">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title">{{ source.name }}</h5>
+                <p class="card-text">{{ source.subtext }}</p>
+                <p class="card-text"><small class="text-body-secondary"></small></p>
+                <li class="list-group-item"><a href="/source/{{ source.id }}" class="btn btn-warning px-1"> ვრცლად
+                    <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9H2zM1 7v1h14V7H1zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5z"/>
+                </a></li>
+            </div>
+            {% if current_user.role == "admin" %}
+            <li class="list-group-item">
+                <a href="/edit/{{ source.id }}" class="btn btn-outline-success px-1"> რედაქტირება </a>
+                <a href="/delete/{{ source.id }}" class="btn btn-outline-danger px-1"> წაშლა </a></li>
+            {% endif %}
+
+        </div>
+    </div>
+</div>
+
+<br>
+
+{% endfor %}
+<br><br><br><br><br><br><br><br><br><br><br>
+<style> h6 {color:#80FF00}</style>
+<div class="accordion" id="accordionExample">
+    <div class="accordion-item">
+        <h2 class="accordion-header">
+            <button class="accordion-button" style="background-color:#339933" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                <h6> რა პროექტია Georgian Biogas? </h6>
+            </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+            <div class="accordion-body" style="background-color:#80FF00">
+                <strong>Georgian Biogas</strong> პროექტი ეფუძნება საქართველოში ამოუწურავი, აღდგენადი რესურსების მნიშვნელობაზე ხალხის ინფორმირებას და ქართული ბიოგაზის წარმოებას. პროექტის იდეა ეკუთვნის 16 წლის ბიჭს, საბა მარკოზაშვილს.
+            </div>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <h2 class="accordion-header">
+            <button class="accordion-button collapsed" style="background-color:#339933" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false"
+                    aria-controls="collapseTwo">
+                <h6> რა არის პროექტის თავდაპირველი მიზნები? </h6>
+            </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+            <div class="accordion-body" style="background-color:#80FF00">
+                პროექტის თავდაპირველი მიზნებია ხალხის, ინვესტორი კომპანიების, ორგანიზაციებისა თუ კერძო პირების დაინტერესება. შემდგომი ეტაპი კი იდეის განხორციელება და პირველი ბიოგაზის ქარხნის მშენებლობაა.
+            </div>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <h2 class="accordion-header">
+            <button class="accordion-button collapsed" style="background-color:#339933" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false"
+                    aria-controls="collapseThree">
+                <h6> რატომ უნდა დააინტერესდეთ ინვესტორებს Georgian Biogas? </h6>
+            </button>
+        </h2>
+        <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+            <div class="accordion-body" style="background-color:#80FF00">
+                <strong>XXI</strong> საუკუნეში სახელმწიოფების განვითარების გზა მწვანე ეკონომისკენ მიდის. მომავალ წლებში ეკონომიკის ზრდა უფრო და უფრო დაეყრდნობა ეკო, ბიო და მწვანე რესურსებს. Georgian Biogas კი პირველი პროექტია, რომელიც საქართველოში გაზის მიღების ეკოლოგიურად სუფთა, ინოვაციურ მეთოდს ნერგავს.
+            </div>
+        </div>
+    </div>
+        <div class="accordion-item">
+        <h2 class="accordion-header">
+            <button class="accordion-button collapsed" style="background-color:#339933" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false"
+                    aria-controls="collapseThree">
+                <h6> დამატებითი კითხვების შემთხვევაში, ვის დავუკავშირდეთ? </h6>
+            </button>
+        </h2>
+        <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+            <div class="accordion-body" style="background-color:#80FF00">
+                დამატებითი კითხვების შემთხვევაში დაგვიკავშირდით მეილზე - georgianbiogas@gmail.com
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+

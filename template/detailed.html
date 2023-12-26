@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+<div class="container-md">
+    <div class="card mb-3 mt-5">
+        <img src="/static/{{source.img}}" style="width:29rem" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">{{ source.name }}</h5>
+            <p class="card-text">{{ source.text }}</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+Registration
+{% block body %}
+
+
+<div class="container-md container-fluid bg-white mt-5 border-top border-bottom shadow rounded">
+    <div class="container">
+        <form method="post">
+            {{ form.hidden_tag() }}
+            {% for errors in form.errors.values() %}
+            {% for error in errors %}
+            {{ error }}
+            {% endfor %}
+            {% endfor %}
+            {% if error_message %}
+            <p class="error">{{ error_message }}</p>
+            {% endif %}
+            {{ form.username(class="form-control mt-2", placeholder = form.username.label.text) }}
+            {{ form.password(class="form-control mt-2", placeholder = form.password.label.text) }}
+            {{ form.repeated_password(class="form-control mt-2", placeholder = form.repeated_password.label.text) }}
+            {{ form.gender.label (class="mt-2") }}
+            {{ form.gender }}
+            {{ form.birthday(class="form-control mt-2", placeholder = form.birthday.label.text) }}
+            {{ form.country(class="form-select mt-2") }}
+            {{ form.submit(class= "btn btn-warning mt-5 my-3" ) }}
+
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}

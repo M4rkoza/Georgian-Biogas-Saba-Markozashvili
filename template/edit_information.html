@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+Edit Information
+{% block body %}
+
+
+<div class="container-md container-fluid bg-white mt-5 border-top border-bottom shadow rounded">
+    <div class="container">
+        <form method="post" enctype="multipart/form-data">
+            <p> <h6> Edit Information </h6> </p>
+            {{ form.hidden_tag() }}
+            {{ form.editname(class="form-control mt-2", placeholder = form.editname.label.text) }}
+            {{ form.editsubtext(class="form-control mt-2", placeholder = form.editsubtext.label.text) }}
+            {{ form.edittext(class="form-control mt-2", placeholder = form.edittext.label.text) }}
+            {{ form.editimg(class="form-control mt-2", placeholder = form.editimg.label.text, accept=".png,.jpg,.jpeg") }}
+
+            {{ form.editsubmit(class= "btn btn-warning mt-5 my-3" ) }}
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}

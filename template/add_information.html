@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+Adding Information
+{% block body %}
+
+
+<div class="container-md container-fluid bg-white mt-5 border-top border-bottom shadow rounded">
+    <div class="container">
+        <form method="post" enctype="multipart/form-data">
+            <p> <h6> Add Information </h6> </p>
+            {{ form.hidden_tag() }}
+            {{ form.name(class="form-control mt-2", placeholder = form.name.label.text) }}
+            {{ form.subtext(class="form-control mt-2", placeholder = form.subtext.label.text) }}
+            {{ form.text(class="form-control mt-2", placeholder = form.text.label.text) }}
+            {{ form.img(class="form-control mt-2", placeholder = form.img.label.text) }}
+
+            {{ form.submit(class= "btn btn-warning mt-5 my-3" ) }}
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}
+

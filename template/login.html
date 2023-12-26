@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+Login
+{% block body %}
+
+
+<div class="container-md container-fluid bg-white mt-5 border-top border-bottom shadow rounded">
+    <div class="container">
+        <form method="post">
+            {{ form.hidden_tag() }}
+
+            {{ form.username(class="form-control mt-2", placeholder = form.username.label.text) }}
+            {{ form.password(class="form-control mt-2", placeholder = form.password.label.text) }}
+
+            {{ form.submit(class= "btn btn-warning mt-5 my-3" ) }}
+            {% if error_message %}
+            <p class="error">{{ error_message }}</p>
+            {% endif %}
+
+
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}
